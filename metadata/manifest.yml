@@ -1,0 +1,24 @@
+---
+Name: datadog
+Cartridge-Short-Name: DATADOG
+Display-Name: Datadog
+Description: "A Datadog Cartridge "
+Source-Url: https://github.com/mmahut/openshift-datadog-cartridge.git
+Version: '1.0'
+License: ASL 2.0
+Vendor: mmahut
+Cartridge-Version: 1.0.0
+Cartridge-Vendor: mmahut
+Categories:
+  - embedded
+  - service
+Provides:
+  - datadog-1.0
+  - "datadog"
+Publishes:
+Subscribes:
+Endpoints:
+Scaling:
+  Min: 1
+  Max: -1
+
