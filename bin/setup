@@ -1,4 +1,6 @@
 #!/bin/bash -e
+set -x
+exec 2>$TMP/datadog_install.log
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 pushd /sandbox
 # download the setup agent script
@@ -7,3 +9,4 @@ wget https://raw.github.com/DataDog/dd-agent/master/packaging/datadog-agent/sour
 sed -i 's/sh bin\/agent/\#sh bin\/agent/g' setup_agent.sh
 # install it to $OPENSHIFT_DATADOG_DIR
 dd_home=$OPENSHIFT_DATADOG_DIR sh setup_agent.sh
+rm setup_agent.sh
