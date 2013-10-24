@@ -3,6 +3,9 @@ source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
 function start() {
     client_result "Starting Datadog cartridge"
+    if [ -z $OPENSHIFT_DATADOG_API_KEY ]; then
+        sed -i 's/api_key:.*/api_key: ${OPENSHIFT_DATADOG_API_KEY}/g' $OPENSHIFT_DATADOG_DIR/agent/datadog.conf
+    fi
 }
 
 function stop() {

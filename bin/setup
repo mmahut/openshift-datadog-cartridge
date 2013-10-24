@@ -2,6 +2,14 @@
 set -x
 exec 2>$TMP/datadog_install.log
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
+
+env_dir="${OPENSHIFT_DATADOG_DIR}/env"
+
+set_env_var 'OPENSHIFT_DATADOG_API_KEY' $OPENSHIFT_DATADOG_API_KEY $env_dir
+if [ -z $OPENSHIFT_DATADOG_API_KEY ]; then
+    export DD_API_KEY=$OPENSHIFT_DATADOG_API_KEY
+fi
+
 pushd /sandbox
 # download the setup agent script
 wget https://raw.github.com/DataDog/dd-agent/master/packaging/datadog-agent/source/setup_agent.sh
