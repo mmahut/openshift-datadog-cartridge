@@ -16,7 +16,7 @@ wget https://raw.github.com/DataDog/dd-agent/master/packaging/datadog-agent/sour
 # stop the agent after installation is done
 sed -i 's/wait/kill -INT/g' setup_agent.sh
 # install it to $OPENSHIFT_DATADOG_DIR
-export dd_home=$OPENSHIFT_DATADOG_DIRA
+export dd_home=$OPENSHIFT_DATADOG_DIR
 chmod +x setup_agent.sh
 ./setup_agent.sh
 # clean up
